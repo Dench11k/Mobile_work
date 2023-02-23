@@ -6,6 +6,51 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="57dp"
+        android:layout_height="68dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="28dp"
+        android:src="@drawable/zanchok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.087" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="95dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/textView11"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="3dp"
+        android:layout_toEndOf="@+id/imageView3"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size2"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.297"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="95dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/imageView3"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size2"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.297"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
         android:id="@+id/imageView3"
         android:layout_width="178dp"
         android:layout_height="157dp"
@@ -24,17 +69,6 @@
         android:text="LADA"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size2" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName5"
-        android:layout_width="194dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="12dp"
-        android:layout_toEndOf="@+id/textView4"
-        android:ems="10"
-        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView5"
