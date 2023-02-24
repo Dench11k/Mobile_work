@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MyApp";
     public void onMyButton(View view){
         Toast.makeText(this,"Вход выполнен",Toast.LENGTH_SHORT).show();
+        Log.i(TAG,"ButtonOn");
         EditText nameText = findViewById(R.id.editTextTextPersonName);
         EditText nameText1 = findViewById(R.id.editTextTextPersonName2);
         String name = nameText.getText().toString();
@@ -21,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("name", name);
         intent.putExtra("name1",name1 );
         startActivity(intent);
-        Log.i(TAG,"ButtonOn");
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

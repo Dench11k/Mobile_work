@@ -10,13 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
 public class SecondActivity extends AppCompatActivity {
     private static final String TAG = "MyApp";
     TextView textView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +36,8 @@ public class SecondActivity extends AppCompatActivity {
         button3.setOnClickListener(
                 new View.OnClickListener() {
                     public void onClick(View v) {
+                        Log.i(TAG, "ButtonOn_1");
+                        Toast.makeText(SecondActivity.this,"Переход осуществлен",Toast.LENGTH_SHORT).show();
                         TextView nameText = findViewById(R.id.textView9);
                         TextView nameText1 = findViewById(R.id.textView10);
                         String name = nameText.getText().toString();
@@ -44,12 +46,9 @@ public class SecondActivity extends AppCompatActivity {
                         intent.putExtra("name", name);
                         intent.putExtra("name1", name1);
                         SecondActivity.this.startActivity(intent);
-                        Log.i(TAG, "ButtonOn_1");
-
                     }
                 }
         );
     }
-
 
 }

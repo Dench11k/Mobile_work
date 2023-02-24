@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,10 +11,10 @@
         android:id="@+id/imageView2"
         android:layout_width="178dp"
         android:layout_height="157dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:src="@drawable/_fc08dc1_fd63_40cf_bdd3_9b39e6f70ae3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,7 +22,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
+        android:layout_marginStart="64dp"
         android:text="LADA"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size2"
@@ -37,7 +38,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="144dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/button_name_3"
+        android:text="Владельцам"
+        android:onClick="onMyButton1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.809"
         app:layout_constraintStart_toEndOf="@+id/button3"
@@ -58,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="80dp"
         android:text="@string/button_name_2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
