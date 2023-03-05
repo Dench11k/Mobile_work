@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.view.View;
 import android.widget.EditText;
@@ -22,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("name", name);
         intent.putExtra("name1",name1 );
         startActivity(intent);
-    }
 
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

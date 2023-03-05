@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        ImageView image = (ImageView) findViewById(R.id.imageView2);
         textView = (TextView) findViewById(R.id.textView9);
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
@@ -45,10 +48,18 @@ public class SecondActivity extends AppCompatActivity {
                         Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
                         intent.putExtra("name", name);
                         intent.putExtra("name1", name1);
-                        SecondActivity.this.startActivity(intent);
+                        startActivityForResult(intent,1);
                     }
                 }
         );
     }
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        TextView info = findViewById(R.id.textView20);
+        if(resultCode == RESULT_OK ){
+            String car = data.getStringExtra("namecar");
+            info.setText(car);
+        }
+    }
 }

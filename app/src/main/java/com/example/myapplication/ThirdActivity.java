@@ -10,9 +10,10 @@ import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ThirdActivity extends AppCompatActivity {
-
+    public final static String name1 = "OK";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,18 @@ public class ThirdActivity extends AppCompatActivity {
         String name1 = intent.getStringExtra("name1");
         textView.setText(name1);
         TextView textView1 = new TextView(this);
+
+    }
+    private static final String TAG = "MyApp";
+    public void onMyButton1(View view){
+        Toast.makeText(this,"Возврат осуществлен",Toast.LENGTH_SHORT).show();
+        Log.i(TAG,"ButtonOn");
+        Intent intent = new Intent();
+        EditText nameText = findViewById(R.id.editTextCar);
+        String name = nameText.getText().toString();
+        intent.putExtra("namecar", name);
+        setResult(RESULT_OK,intent);
+        finish();
 
     }
 }
