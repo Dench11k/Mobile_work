@@ -11,63 +11,17 @@ import android.view.View;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MyApp";
-    public void onMyButton(View view){
-        Toast.makeText(this,"Вход выполнен",Toast.LENGTH_SHORT).show();
-        Log.i(TAG,"ButtonOn");
-        EditText nameText = findViewById(R.id.editTextTextPersonName);
-        EditText nameText1 = findViewById(R.id.editTextTextPersonName2);
-        String name = nameText.getText().toString();
-        String name1 = nameText1.getText().toString();
-        Intent intent = new Intent(this, SecondActivity.class);
-        intent.putExtra("name", name);
-        intent.putExtra("name1",name1 );
-        startActivity(intent);
 
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toast.makeText(getApplicationContext(), "OnCreate", Toast.LENGTH_SHORT).show();
-        Log.e(TAG,"onCreate");
+       if(savedInstanceState == null){
+           getSupportFragmentManager().beginTransaction()
+                   .setReorderingAllowed(true)
+                   .add(R.id.fragmentContainerView,FirstFragment.class,null)
+                   .commit();
+       }
     }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Toast.makeText(getApplicationContext(), "OnStart", Toast.LENGTH_SHORT).show();
-        Log.w(TAG,"onStart");
-    }
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Toast.makeText(getApplicationContext(), "OnStop", Toast.LENGTH_SHORT).show();
-        Log.i(TAG,"onStop");
-    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Toast.makeText(getApplicationContext(), "OnDestroy", Toast.LENGTH_SHORT).show();
-        Log.d(TAG,"onDestroy");
-    }
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Toast.makeText(getApplicationContext(), "OnPause", Toast.LENGTH_SHORT).show();
-        Log.v(TAG,"onPause");
-    }
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Toast.makeText(getApplicationContext(), "OnResume", Toast.LENGTH_SHORT).show();
-        Log.i(TAG,"onResume");
-    }
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Toast.makeText(getApplicationContext(), "OnRestart", Toast.LENGTH_SHORT).show();
-        Log.i(TAG,"onRestart");
-    }
-
 
 }
