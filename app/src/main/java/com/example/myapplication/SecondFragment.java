@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,17 +20,44 @@ import android.widget.Toast;
 
 public class SecondFragment extends Fragment {
     static final private String TAG = "SecondFr";
+    private String fam;
+    private  String name;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        fam = getArguments().getString("fam");
+        name = getArguments().getString("name");
         Toast.makeText(getContext(), "OnCreate", Toast.LENGTH_SHORT).show();
         Log.d(TAG,"onCreate");
     }
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
+        View view1 = inflater.inflate(R.layout.fragment_second,container,false);
+        TextView text1= (TextView) view1.findViewById(R.id.textView9);
+        TextView text2 = (TextView) view1.findViewById(R.id.textView10);
+        text1.setText(fam);
+        text2.setText(name);
+        Bundle bundle1 = getArguments();
+        if(bundle1 != null){
+            TextView text = (TextView) view1.findViewById(R.id.textView20);
+            text.setText(getArguments().getString("car"));
+        }
+        Button button3 = (Button) view1.findViewById(R.id.button3);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView nameText = (TextView) view1.findViewById(R.id.textView9);
+                TextView nameText1 = (TextView) view1.findViewById(R.id.textView10);
+                Bundle bundle = new Bundle();
+                bundle.putString("fam", nameText.getText().toString());
+                bundle.putString("name",nameText1.getText().toString());
+                getParentFragmentManager().beginTransaction().setReorderingAllowed(true)
+                        .replace(R.id.fragmentContainerView,ThirdFragment.class,bundle).commit();
+            }
+        });
         Toast.makeText(getContext(), "OnCreateView", Toast.LENGTH_SHORT).show();
         Log.d(TAG,"onCreateView");
-        return inflater.inflate(R.layout.fragment_second, container, false);
+        return view1;
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view,savedInstanceState);

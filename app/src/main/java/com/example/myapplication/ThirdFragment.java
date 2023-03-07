@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,17 +20,38 @@ import android.widget.Toast;
 public class ThirdFragment extends Fragment {
 
     static final private String TAG = "ThirdFr";
+    private String fam;
+    private  String name;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        fam = getArguments().getString("fam");
+        name = getArguments().getString("name");
         Toast.makeText(getContext(), "OnCreate", Toast.LENGTH_SHORT).show();
         Log.d(TAG,"onCreate");
     }
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
+        View view1 = inflater.inflate(R.layout.fragment_third,container,false);
+        TextView text1= (TextView) view1.findViewById(R.id.textView11);
+        TextView text2 = (TextView) view1.findViewById(R.id.textView17);
+        text1.setText(fam);
+        text2.setText(name);
+        Button button2 = (Button) view1.findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText nameText = (EditText) view1.findViewById(R.id.editTextCar);
+                Bundle bundle = new Bundle();
+                bundle.putString("car", nameText.getText().toString());
+                getParentFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.fragmentContainerView,SecondFragment.class,bundle).commit();
+            }
+        });
         Toast.makeText(getContext(), "OnCreateView", Toast.LENGTH_SHORT).show();
         Log.d(TAG,"onCreateView");
-        return inflater.inflate(R.layout.fragment_third, container, false);
+        return view1;
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view,savedInstanceState);
