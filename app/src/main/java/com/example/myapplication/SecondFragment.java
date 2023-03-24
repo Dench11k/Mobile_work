@@ -1,12 +1,15 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,6 +53,7 @@ public class SecondFragment extends Fragment {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 TextView nameText = (TextView) view1.findViewById(R.id.textView9);
                 TextView nameText1 = (TextView) view1.findViewById(R.id.textView10);
                 Bundle bundle = new Bundle();
@@ -57,12 +61,15 @@ public class SecondFragment extends Fragment {
                 bundle.putString("name",nameText1.getText().toString());
                 getParentFragmentManager().beginTransaction().setReorderingAllowed(true)
                         .replace(R.id.fragmentContainerView,ThirdFragment.class,bundle).commit();
+                Intent intent = new Intent(view.getContext(), MyService.class);
+                getContext().startService(intent);
             }
         });
         Toast.makeText(getContext(), "OnCreateView", Toast.LENGTH_SHORT).show();
         Log.d(TAG,"onCreateView");
         return view1;
     }
+
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view,savedInstanceState);
         Toast.makeText(getContext(), "OnViewCreated", Toast.LENGTH_SHORT).show();
