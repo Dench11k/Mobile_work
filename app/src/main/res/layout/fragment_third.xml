@@ -161,5 +161,4 @@
             android:onClick="onMyButton1"
             android:text="Готово" />
 
-
     </RelativeLayout>

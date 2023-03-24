@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class FirstActivity extends AppCompatActivity {
@@ -28,7 +30,10 @@ public class FirstActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_first);
+        TextView nameText = findViewById(R.id.textView2);
+        String text = getResources().getString(R.string.text_name_5);
+        nameText.setText(text);
         Toast.makeText(getApplicationContext(), "OnCreate", Toast.LENGTH_SHORT).show();
         Log.e(TAG,"onCreate");
     }

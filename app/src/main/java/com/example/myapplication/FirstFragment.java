@@ -27,10 +27,8 @@ public class FirstFragment extends Fragment {
         Toast.makeText(getContext(), "OnCreate", Toast.LENGTH_SHORT).show();
         Log.d(TAG,"onCreate");
     }
-
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view1 = inflater.inflate(R.layout.fragment_first,container,false);
-
         Button but = (Button) view1.findViewById(R.id.button);
         but.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +43,6 @@ public class FirstFragment extends Fragment {
                         .replace(R.id.fragmentContainerView,SecondFragment.class,bundle).commit();
             }
         });
-
         Toast.makeText(getContext(), "OnCreateView", Toast.LENGTH_SHORT).show();
         Log.d(TAG,"onCreateView");
         return view1;

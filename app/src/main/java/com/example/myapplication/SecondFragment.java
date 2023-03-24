@@ -41,6 +41,10 @@ public class SecondFragment extends Fragment {
         if(bundle1 != null){
             TextView text = (TextView) view1.findViewById(R.id.textView20);
             text.setText(getArguments().getString("car"));
+            TextView text3= (TextView) view1.findViewById(R.id.textView9);
+            text3.setText(getArguments().getString("fam"));
+            TextView text4 = (TextView) view1.findViewById(R.id.textView10);
+            text4.setText(getArguments().getString("name"));
         }
         Button button3 = (Button) view1.findViewById(R.id.button3);
         button3.setOnClickListener(new View.OnClickListener() {
